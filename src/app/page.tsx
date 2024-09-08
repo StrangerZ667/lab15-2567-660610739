@@ -61,7 +61,7 @@ const schema = z
   .refine(
     //refine allows you check error in your own way
     //in this example, we check "hasCoupon" with "coupon" fields
-    (data : any) => {
+    (data) => {
       // if user does not tick "I have coupon", then it's ok
       if (!data.hasCoupon) return true;
 
@@ -78,7 +78,7 @@ const schema = z
     }
   )
   .refine(
-    (data : any) => {
+    (data) => {
       if (data.confirmPassword === data.password) return true;
       return false;
     },
@@ -134,7 +134,7 @@ export default function Home() {
         <Space h="lg" />
 
         {/* add form */}
-        <form onSubmit={form.onSubmit((v) => alert("See you at CMU Marathon"))}>
+        <form onSubmit={form.onSubmit(() => alert("See you at CMU Marathon"))}>
           <Stack gap="sm">
             <Group grow align="start">
               <TextInput
