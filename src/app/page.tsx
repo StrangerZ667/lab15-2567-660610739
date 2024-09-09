@@ -53,10 +53,7 @@ const schema = z
       .string()
       .min(6, { message: "Password must contain at least 6 characters" })
       .max(12, { message: "Password must not exceed 12 characters" }),
-    confirmPassword: z
-      .string()
-      .min(6, { message: "Password must contain at least 6 characters" })
-      .max(12, { message: "Password must not exceed 12 characters" }),
+    confirmPassword: z.string()
   })
   .refine(
     //refine allows you check error in your own way
